@@ -833,3 +833,21 @@ body {
   /* Ajuste la valeur selon la hauteur réelle de ta nav */
   padding-top: 56px;
 }
+/* Ajuste la valeur selon la hauteur réelle de ta barre */
+body {
+  padding-top: 56px;
+}
+
+/* On enlève ce padding-top pour la page d’accueil 
+   (repérée grâce à id="homepage") */
+#homepage {
+  padding-top: 0;
+}
+
+/* Sur mobile, tu avais un margin-top pour le slider 
+   qu'on supprime également sur la page d’accueil */
+@media screen and (max-width: 768px) {
+  #homepage .fade-slider {
+    margin-top: 0;
+  }
+}
