@@ -753,3 +753,61 @@ nav a:hover {
     font-size: 10px;
   }
 }
+/* Correction spécifique pour l'espacement des mots sur mobile */
+@media screen and (max-width: 768px) {
+  /* Désactiver la justification qui cause les espacements irréguliers */
+  p, li {
+    text-align: left !important; /* Forcer l'alignement à gauche */
+    word-spacing: normal !important; /* Réinitialiser l'espacement des mots */
+    text-justify: none !important; /* Désactiver la justification */
+    hyphens: auto; /* Activer la césure automatique */
+    white-space: normal !important; /* Assurer le retour à la ligne normal */
+    word-break: break-word; /* Permettre la césure des mots très longs */
+  }
+  
+  /* Correction des colonnes pour afficher correctement l'image avec le texte */
+  .row {
+    display: block; /* Changer flex en block pour un meilleur contrôle */
+  }
+  
+  .col-text, .col-image {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+  
+  /* Assurer que le texte est bien contenu et qu'il ne déborde pas */
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  
+  /* Forcer la barre de navigation à s'adapter */
+  nav {
+    height: auto;
+    padding: 5px 0;
+  }
+  
+  nav ul {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  nav li {
+    margin: 3px 8px;
+    padding: 3px 0;
+  }
+  
+  /* Correction urgente des problèmes de mise en page observés sur votre capture d'écran */
+  section.row.reverse .col-text,
+  section.row .col-text {
+    width: 100% !important;
+    padding: 0 10px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+}
