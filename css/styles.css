@@ -583,5 +583,48 @@ nav a:hover {
 .contact-placeholder em {
   color: #666;
 }
+/* Ajustements pour les petits écrans */
+@media screen and (max-width: 768px) {
+  
+  /* Ajuster la barre de navigation */
+  nav ul {
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
+    justify-content: center; /* Centrage des liens */
+  }
+
+  nav li {
+    margin: 5px; /* Espacement plus petit pour éviter le chevauchement */
+  }
+
+  /* Améliorer le texte qui semble mal espacé */
+  p {
+    text-align: justify; /* Alignement plus propre */
+    line-height: 1.5; /* Meilleur espacement entre les lignes */
+  }
+
+  /* Correction du positionnement des images */
+  .col-image img {
+    width: 100%; /* Images prennent toute la largeur */
+    max-width: 100%; /* Empêche l’image de dépasser */
+    height: auto; /* Garder les proportions */
+  }
+
+  /* Ajustement des cartes de dates importantes */
+  .dates-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrer les éléments */
+  }
+
+  .date-card {
+    width: 90%; /* Élargir les cartes pour occuper tout l'espace */
+    margin-bottom: 15px; /* Ajout d'un espace entre les cartes */
+  }
+  
+  /* Ajustement du conteneur global */
+  .container {
+    padding: 10px; /* Réduire les marges pour économiser de l’espace */
+  }
+}
 
 
