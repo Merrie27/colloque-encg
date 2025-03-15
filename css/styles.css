@@ -52,7 +52,8 @@ section {
 /* 
   ==========================
   Barre de Navigation
-========================== */
+  ==========================
+*/
 nav {
   position: fixed;
   top: 0;
@@ -95,7 +96,8 @@ nav a:hover {
 /* 
   ==========================
   Slider Fade
-========================== */
+  ==========================
+*/
 .fade-slider {
   position: relative;
   box-sizing: border-box;
@@ -161,6 +163,7 @@ nav a:hover {
   text-align: center;
 }
 
+/* Boutons navigation du slider */
 .prev, .next {
   position: absolute;
   z-index: 3;
@@ -201,7 +204,8 @@ nav a:hover {
 /* 
   ==========================
   Row Alterné (si besoin)
-========================== */
+  ==========================
+*/
 .row {
   display: flex;
   flex-wrap: nowrap;
@@ -238,7 +242,8 @@ nav a:hover {
 /* 
   ==========================
   Section Titles
-========================== */
+  ==========================
+*/
 .section-subtitle {
   margin: 0 0 10px 0;
   font-size: 24px;
@@ -270,7 +275,8 @@ nav a:hover {
 /* 
   ==========================
   Animations Intersection Observer
-========================== */
+  ==========================
+*/
 .fade-in-left, .fade-in-right {
   opacity: 0;
   transform: translateX(0);
@@ -290,7 +296,8 @@ nav a:hover {
 /* 
   ==========================
   Section Sponsors
-========================== */
+  ==========================
+*/
 .sponsors-section {
   margin: 40px 0;
 }
@@ -356,7 +363,8 @@ nav a:hover {
 /* 
   ==========================
   Téléchargement Argumentaire
-========================== */
+  ==========================
+*/
 .telecharger-argumentaire {
   text-align: center;
   margin-top: 40px;
@@ -385,7 +393,8 @@ nav a:hover {
 /* 
   ==========================
   Grille & Cartes des Dates Importantes
-========================== */
+  ==========================
+*/
 .dates-grid {
   display: flex;
   flex-wrap: wrap;
@@ -428,7 +437,8 @@ nav a:hover {
 /* 
   ==========================
   Comités (Honneur, Organisation)
-========================== */
+  ==========================
+*/
 .committee-grid {
   display: flex;
   gap: 20px;
@@ -485,7 +495,8 @@ nav a:hover {
 /* 
   ==========================
   RUBRIQUE "LIEU" : STYLE SUPPLÉMENTAIRE
-========================== */
+  ==========================
+*/
 .place-container {
   /* On occupe toute la largeur du .container 
      (pour aligner le sous-titre à gauche) */
@@ -542,7 +553,8 @@ nav a:hover {
 /* 
   ==========================
   RUBRIQUE "CONTACT"
-========================== */
+  ==========================
+*/
 .contact-block {
   margin-top: 40px;
   border: 2px solid var(--rouge-profond);
@@ -583,28 +595,31 @@ nav a:hover {
 /* 
   ==========================
   AMÉLIORATIONS RESPONSIVE DESIGN
-========================== */
+  ==========================
+*/
+
+/* Règles pour les écrans de largeur max 768px */
 @media screen and (max-width: 768px) {
   /* Correction du positionnement de la page par rapport à la navbar */
   body {
-    padding-top: 120px; /* Espace pour la barre de navigation qui se met sur deux lignes */
+    padding-top: 80px; /* Ajusté pour la barre de navigation horizontale */
   }
   
-  /* Ajustement de la barre de navigation */
+  /* Ajustement de la barre de navigation pour conserver une disposition horizontale */
   nav {
-    flex-direction: column;
-    align-items: center;
-    padding: 5px 0;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 5px;
   }
   
   .logo-colloque {
-    margin: 5px 0;
+    margin: 0 5px;
   }
   
   nav ul {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
-    margin-top: 5px;
+    margin-top: 0;
   }
   
   nav li {
@@ -634,11 +649,12 @@ nav a:hover {
   
   /* Amélioration des sections avec image et texte */
   .row {
-    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
   }
   
   .reverse {
-    flex-direction: column; /* Supprime l'inversion sur mobile */
+    flex-direction: row-reverse;
   }
   
   .col-text, .col-image {
@@ -653,7 +669,7 @@ nav a:hover {
   
   /* Amélioration du texte pour éviter les mauvais espacements */
   p, li {
-    text-align: left; /* Texte aligné à gauche sur mobile pour éviter les espacements bizarres */
+    text-align: left !important;
     word-break: normal;
     overflow-wrap: break-word;
     hyphens: auto;
@@ -714,14 +730,18 @@ nav a:hover {
   
   /* Correction du conteneur principal */
   .container {
-    padding: 0 15px;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 }
 
-/* Améliorations pour les très petits écrans */
+/* Règles pour les très petits écrans (max-width: 480px) */
 @media screen and (max-width: 480px) {
   body {
-    padding-top: 140px; /* Plus d'espace pour la navigation sur très petits écrans */
+    padding-top: 80px;
   }
   
   nav li {
@@ -730,7 +750,7 @@ nav a:hover {
   }
   
   .fade-slider {
-    height: 300px; /* Encore plus petit pour les très petits écrans */
+    height: 300px;
   }
   
   .text-overlay h2 {
@@ -753,9 +773,9 @@ nav a:hover {
     font-size: 10px;
   }
 }
+
 /* Correction spécifique pour l'espacement des mots sur mobile */
 @media screen and (max-width: 768px) {
-  /* Désactiver la justification qui cause les espacements irréguliers */
   p, li {
     text-align: left !important; /* Forcer l'alignement à gauche */
     word-spacing: normal !important; /* Réinitialiser l'espacement des mots */
@@ -767,7 +787,8 @@ nav a:hover {
   
   /* Correction des colonnes pour afficher correctement l'image avec le texte */
   .row {
-    display: block; /* Changer flex en block pour un meilleur contrôle */
+    display: flex;
+    flex-wrap: wrap;
   }
   
   .col-text, .col-image {
@@ -787,13 +808,13 @@ nav a:hover {
   
   /* Forcer la barre de navigation à s'adapter */
   nav {
-    height: auto;
-    padding: 5px 0;
+    /* La navigation reste horizontale grâce au flex-wrap et justify-content déjà définis */
+    padding: 5px;
   }
   
   nav ul {
     width: 100%;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
   }
   
@@ -802,7 +823,7 @@ nav a:hover {
     padding: 3px 0;
   }
   
-  /* Correction urgente des problèmes de mise en page observés sur votre capture d'écran */
+  /* Correction urgente des problèmes de mise en page observés */
   section.row.reverse .col-text,
   section.row .col-text {
     width: 100% !important;
