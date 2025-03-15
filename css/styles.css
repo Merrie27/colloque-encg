@@ -51,7 +51,7 @@ section {
 
 /* 
   ==========================
-  Barre de Navigation
+  Barre de Navigation - Desktop
   ==========================
 */
 nav {
@@ -155,6 +155,12 @@ nav a:hover {
   font-size: 50px;
   margin: 0;
   color: var(--rouge-profond);
+}
+
+/* On force le centrage du texte dans le slider */
+.text-overlay h2,
+.text-overlay p {
+  text-align: center !important;
 }
 
 .sous-titre {
@@ -498,8 +504,6 @@ nav a:hover {
   ==========================
 */
 .place-container {
-  /* On occupe toute la largeur du .container 
-     (pour aligner le sous-titre à gauche) */
   width: 100%;
   margin: 40px 0; 
   text-align: left;
@@ -516,7 +520,7 @@ nav a:hover {
 /* Encapsule la carte pour la centrer */
 .map-wrapper {
   text-align: center;
-  margin-bottom: 30px; /* espace sous la carte */
+  margin-bottom: 30px; 
 }
 
 /* Carte centrée, occupant 80% de la largeur */
@@ -594,241 +598,192 @@ nav a:hover {
 
 /* 
   ==========================
-  AMÉLIORATIONS RESPONSIVE DESIGN
+  RESPONSIVE DESIGN
+  (max-width: 768px)
   ==========================
 */
-
-/* Règles pour les écrans de largeur max 768px */
 @media screen and (max-width: 768px) {
-  /* Correction du positionnement de la page par rapport à la navbar */
-  body {
-    padding-top: 80px; /* Ajusté pour la barre de navigation horizontale */
-  }
-  
-  /* Ajustement de la barre de navigation pour conserver une disposition horizontale */
+  /* NAVIGATION VERTICALE SUR MOBILE */
   nav {
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px; /* largeur de la colonne */
+    flex-direction: column; 
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
   }
-  
+
   .logo-colloque {
-    margin: 0 5px;
+    margin-bottom: 20px;
   }
-  
+
   nav ul {
-    flex-wrap: nowrap;
-    justify-content: center;
-    margin-top: 0;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
-  
+
   nav li {
-    margin: 5px 10px;
-    font-size: 14px;
+    margin: 10px 0; 
   }
-  
-  /* Ajustement du slider */
+
+  nav a {
+    display: block;
+    padding: 10px 0;
+  }
+
+  /*
+    Le contenu principal doit se décaler à droite
+    pour ne pas passer sous la barre de navigation.
+  */
+  body {
+    margin-left: 200px; /* Décalage pour la nav verticale */
+    padding-top: 0 !important; 
+  }
+
+  /* SLIDER moins haut sur mobile */
   .fade-slider {
-    height: 400px; /* Hauteur réduite pour mobile */
-    margin-top: 20px;
+    height: 400px;
   }
-  
+
   .text-overlay {
     width: 90%;
     padding: 15px;
   }
-  
+
   .text-overlay h2 {
-    font-size: 28px; /* Titre plus petit pour mobile */
+    font-size: 28px; 
   }
-  
+
   .sous-titre {
-    font-size: 16px; /* Sous-titre plus petit pour mobile */
+    font-size: 16px; 
     line-height: 1.3;
   }
-  
-  /* Amélioration des sections avec image et texte */
+
+  /* Row en flex-wrap pour empiler les colonnes */
   .row {
     display: flex;
     flex-wrap: wrap;
   }
-  
   .reverse {
     flex-direction: row-reverse;
   }
-  
+
   .col-text, .col-image {
     width: 100%;
     margin-bottom: 20px;
   }
-  
+
   .col-image img {
     width: 100%;
     max-width: 100%;
   }
-  
-  /* Amélioration du texte pour éviter les mauvais espacements */
+
+  /* On conserve le texte justifié sur mobile */
   p, li {
-    text-align: left !important;
-    word-break: normal;
-    overflow-wrap: break-word;
+    text-align: justify !important;
+    word-break: break-word;
     hyphens: auto;
   }
-  
-  /* Ajustement des sections sponsors */
+
+  /* Sponsors (logos) en plusieurs lignes */
   .logos {
     flex-wrap: wrap;
   }
-  
+
   .logo-item {
     width: 45%;
     margin-bottom: 15px;
   }
-  
-  /* Correction des dates importantes */
+
+  /* Dates importantes : cartes en colonne */
   .dates-grid {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .date-card {
     width: 90%;
     max-width: 320px;
     margin-bottom: 15px;
   }
-  
-  /* Correction des comités */
+
+  /* Comités : cartes en colonne */
   .committee-grid {
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .committee-card {
     width: 90%;
     max-width: 300px;
     margin-bottom: 20px;
   }
-  
-  /* Ajustement de la map Google */
+
+  /* Map Google plus petite */
   .map-frame {
     width: 100%;
     height: 300px;
   }
-  
-  /* Ajustement du QR code */
+
+  /* QR code plus petit */
   .qr-box {
     width: 200px;
     height: 200px;
   }
-  
-  /* Ajustement des titres de section */
+
+  /* Titre de section plus petit */
   .section-subtitle {
     font-size: 20px;
     width: 100%;
     display: block;
   }
-  
-  /* Correction du conteneur principal */
+
+  /* Container pleine largeur */
   .container {
     width: 100%;
     max-width: 100%;
     padding: 10px;
     box-sizing: border-box;
     overflow-x: hidden;
+    margin-top: 0 !important;
   }
 }
 
-/* Règles pour les très petits écrans (max-width: 480px) */
+/* 
+  ==========================
+  RESPONSIVE DESIGN
+  (max-width: 480px)
+  ==========================
+*/
 @media screen and (max-width: 480px) {
-  body {
-    padding-top: 80px;
-  }
-  
-  nav li {
-    margin: 3px 8px;
-    font-size: 13px;
-  }
-  
+  /* On peut encore réduire le slider si on veut */
   .fade-slider {
     height: 300px;
   }
-  
+
   .text-overlay h2 {
     font-size: 24px;
   }
-  
+
   .sous-titre {
     font-size: 14px;
   }
-  
+
   .sponsors-group-title {
     font-size: 20px;
   }
-  
+
   .logo-item img {
     max-width: 100px;
   }
-  
+
   .logo-item figcaption {
     font-size: 10px;
-  }
-}
-
-/* Correction spécifique pour l'espacement des mots sur mobile */
-@media screen and (max-width: 768px) {
-  p, li {
-    text-align: left !important; /* Forcer l'alignement à gauche */
-    word-spacing: normal !important; /* Réinitialiser l'espacement des mots */
-    text-justify: none !important; /* Désactiver la justification */
-    hyphens: auto; /* Activer la césure automatique */
-    white-space: normal !important; /* Assurer le retour à la ligne normal */
-    word-break: break-word; /* Permettre la césure des mots très longs */
-  }
-  
-  /* Correction des colonnes pour afficher correctement l'image avec le texte */
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .col-text, .col-image {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-  
-  /* Assurer que le texte est bien contenu et qu'il ne déborde pas */
-  .container {
-    width: 100%;
-    max-width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    overflow-x: hidden;
-  }
-  
-  /* Forcer la barre de navigation à s'adapter */
-  nav {
-    /* La navigation reste horizontale grâce au flex-wrap et justify-content déjà définis */
-    padding: 5px;
-  }
-  
-  nav ul {
-    width: 100%;
-    flex-wrap: nowrap;
-    justify-content: center;
-  }
-  
-  nav li {
-    margin: 3px 8px;
-    padding: 3px 0;
-  }
-  
-  /* Correction urgente des problèmes de mise en page observés */
-  section.row.reverse .col-text,
-  section.row .col-text {
-    width: 100% !important;
-    padding: 0 10px;
-    box-sizing: border-box;
-    word-wrap: break-word;
   }
 }
