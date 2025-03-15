@@ -4,7 +4,7 @@
   ==========================
 */
 :root {
-  --bleu-nav: #002B5C; 
+  --bleu-nav: #074075; 
   --bleu-marine: #002B5C; 
   --rouge-profond: #A51C30;
   --gris-clair: #F8F8F8;
@@ -820,4 +820,16 @@ nav {
   .logo-item figcaption {
     font-size: 10px;
   }
+}
+
+/* 
+  ==========================
+  CORRECTION POUR LA BARRE FIXE
+  ==========================
+  On ajoute un espace en haut du contenu pour compenser la nav fixed,
+  pour TOUS les écrans.
+*/
+body {
+  /* Ajuste la valeur selon la hauteur réelle de ta nav */
+  padding-top: 56px;
 }
