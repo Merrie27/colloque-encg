@@ -145,6 +145,8 @@ nav a:hover {
   color: white;
   border-radius: 5px;
   text-align: center;
+  width: 80%; /* Ajout d'une largeur maximale pour mobile */
+  max-width: 600px; /* Limite la largeur sur grands écrans */
 }
 
 .text-overlay h2 {
@@ -231,12 +233,6 @@ nav a:hover {
   font-style: italic;
   color: #555;
   margin-top: 8px;
-}
-
-@media (max-width: 768px) {
-  .row {
-    flex-wrap: wrap;
-  }
 }
 
 /* 
@@ -498,7 +494,7 @@ nav a:hover {
   text-align: left;
 }
 
-/* Titre “Localisation” (centré) */
+/* Titre "Localisation" (centré) */
 .localisation-title {
   text-align: center;
   font-size: 24px;
@@ -583,49 +579,177 @@ nav a:hover {
 .contact-placeholder em {
   color: #666;
 }
-/* Ajustements pour les petits écrans */
+
+/* 
+  ==========================
+  AMÉLIORATIONS RESPONSIVE DESIGN
+========================== */
 @media screen and (max-width: 768px) {
+  /* Correction du positionnement de la page par rapport à la navbar */
+  body {
+    padding-top: 120px; /* Espace pour la barre de navigation qui se met sur deux lignes */
+  }
   
-  /* Ajuster la barre de navigation */
-  nav ul {
-    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
-    justify-content: center; /* Centrage des liens */
-  }
-
-  nav li {
-    margin: 5px; /* Espacement plus petit pour éviter le chevauchement */
-  }
-
-  /* Améliorer le texte qui semble mal espacé */
-  p {
-    text-align: justify; /* Alignement plus propre */
-    line-height: 1.5; /* Meilleur espacement entre les lignes */
-  }
-
-  /* Correction du positionnement des images */
-  .col-image img {
-    width: 100%; /* Images prennent toute la largeur */
-    max-width: 100%; /* Empêche l’image de dépasser */
-    height: auto; /* Garder les proportions */
-  }
-
-  /* Ajustement des cartes de dates importantes */
-  .dates-grid {
-    display: flex;
+  /* Ajustement de la barre de navigation */
+  nav {
     flex-direction: column;
-    align-items: center; /* Centrer les éléments */
-  }
-
-  .date-card {
-    width: 90%; /* Élargir les cartes pour occuper tout l'espace */
-    margin-bottom: 15px; /* Ajout d'un espace entre les cartes */
+    align-items: center;
+    padding: 5px 0;
   }
   
-  /* Ajustement du conteneur global */
+  .logo-colloque {
+    margin: 5px 0;
+  }
+  
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5px;
+  }
+  
+  nav li {
+    margin: 5px 10px;
+    font-size: 14px;
+  }
+  
+  /* Ajustement du slider */
+  .fade-slider {
+    height: 400px; /* Hauteur réduite pour mobile */
+    margin-top: 20px;
+  }
+  
+  .text-overlay {
+    width: 90%;
+    padding: 15px;
+  }
+  
+  .text-overlay h2 {
+    font-size: 28px; /* Titre plus petit pour mobile */
+  }
+  
+  .sous-titre {
+    font-size: 16px; /* Sous-titre plus petit pour mobile */
+    line-height: 1.3;
+  }
+  
+  /* Amélioration des sections avec image et texte */
+  .row {
+    flex-direction: column;
+  }
+  
+  .reverse {
+    flex-direction: column; /* Supprime l'inversion sur mobile */
+  }
+  
+  .col-text, .col-image {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .col-image img {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Amélioration du texte pour éviter les mauvais espacements */
+  p, li {
+    text-align: left; /* Texte aligné à gauche sur mobile pour éviter les espacements bizarres */
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  /* Ajustement des sections sponsors */
+  .logos {
+    flex-wrap: wrap;
+  }
+  
+  .logo-item {
+    width: 45%;
+    margin-bottom: 15px;
+  }
+  
+  /* Correction des dates importantes */
+  .dates-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .date-card {
+    width: 90%;
+    max-width: 320px;
+    margin-bottom: 15px;
+  }
+  
+  /* Correction des comités */
+  .committee-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .committee-card {
+    width: 90%;
+    max-width: 300px;
+    margin-bottom: 20px;
+  }
+  
+  /* Ajustement de la map Google */
+  .map-frame {
+    width: 100%;
+    height: 300px;
+  }
+  
+  /* Ajustement du QR code */
+  .qr-box {
+    width: 200px;
+    height: 200px;
+  }
+  
+  /* Ajustement des titres de section */
+  .section-subtitle {
+    font-size: 20px;
+    width: 100%;
+    display: block;
+  }
+  
+  /* Correction du conteneur principal */
   .container {
-    padding: 10px; /* Réduire les marges pour économiser de l’espace */
+    padding: 0 15px;
   }
 }
-<link rel="stylesheet" href="mon_site_conference/css/styles.css?v=1.1">
 
-
+/* Améliorations pour les très petits écrans */
+@media screen and (max-width: 480px) {
+  body {
+    padding-top: 140px; /* Plus d'espace pour la navigation sur très petits écrans */
+  }
+  
+  nav li {
+    margin: 3px 8px;
+    font-size: 13px;
+  }
+  
+  .fade-slider {
+    height: 300px; /* Encore plus petit pour les très petits écrans */
+  }
+  
+  .text-overlay h2 {
+    font-size: 24px;
+  }
+  
+  .sous-titre {
+    font-size: 14px;
+  }
+  
+  .sponsors-group-title {
+    font-size: 20px;
+  }
+  
+  .logo-item img {
+    max-width: 100px;
+  }
+  
+  .logo-item figcaption {
+    font-size: 10px;
+  }
+}
