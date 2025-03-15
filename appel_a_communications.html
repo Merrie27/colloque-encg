@@ -8,10 +8,17 @@
 </head>
 <body>
 
-  <!-- Barre de navigation (identique à la page d'accueil) -->
+  <!-- Barre de navigation avec menu burger -->
   <nav>
-    <img src="images/logo-rpm25.png" alt="Logo RPM25" class="logo-colloque">
-    <ul>
+    <div class="nav-header">
+      <img src="images/logo-rpm25.png" alt="Logo RPM25" class="logo-colloque">
+      <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
+        <span class="burger"></span>
+        <span class="burger"></span>
+        <span class="burger"></span>
+      </button>
+    </div>
+    <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="appel_a_communications.html" class="active">Appel à Communications</a></li>
       <li><a href="dates_importantes.html">Dates Importantes</a></li>
@@ -22,8 +29,9 @@
     </ul>
   </nav>
 
-  <!-- Conteneur principal, marge pour éviter la nav fixe -->
-  <div class="container" style="margin-top:130px;">
+  <!-- Conteneur principal (pas de margin-top inline, 
+       car on gère l'espacement via le CSS) -->
+  <div class="container">
 
     <!-- Section de présentation (sans titre H1) -->
     <section class="fade-in-left">
@@ -87,7 +95,7 @@
       </p>
     </section>
 
-    <!-- Téléchargement de l'Argumentaire (barre rouge juste pour le texte) -->
+    <!-- Téléchargement de l'Argumentaire (barre rouge) -->
     <section class="fade-in-left telecharger-argumentaire">
       <p>Pour plus de détails, vous pouvez télécharger l’argumentaire complet en PDF :</p>
       <div class="red-box">
@@ -99,10 +107,11 @@
 
   </div> <!-- Fin .container -->
 
-  <!-- Script pour les animations IntersectionObserver -->
+  <!-- Script principal (incluant la fonction toggleMenu) -->
   <script src="js/script.js"></script>
 </body>
 </html>
+
 
 
 

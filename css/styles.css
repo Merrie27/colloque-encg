@@ -51,9 +51,11 @@ section {
 
 /* 
   ==========================
-  Barre de Navigation - Desktop
+  NAVIGATION (DESKTOP + BURGER)
   ==========================
 */
+
+/* Barre de navigation - Desktop */
 nav {
   position: fixed;
   top: 0;
@@ -64,32 +66,60 @@ nav {
   z-index: 999;
   display: flex;
   align-items: center;  
-  justify-content: flex-start; 
+  justify-content: space-between; /* pour séparer logo et bouton à droite */
+  box-sizing: border-box;
 }
 
+/* Conteneur du logo + bouton burger */
+.nav-header {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo colloque */
 .logo-colloque {
   height: 65px;
-  margin-right: 15px; /* espace à droite du logo */
+  margin-right: 15px;
 }
 
-nav ul {
+/* Bouton burger - caché sur grand écran */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 5px;
+  transition: 0.4s;
+}
+
+/* Liste de liens - horizontale par défaut (desktop) */
+.nav-links {
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
 }
 
-nav li {
+/* Chaque li (desktop) */
+.nav-links li {
   margin: 0 28px;
 }
 
-nav a {
+/* Les liens */
+.nav-links a {
   text-decoration: none;
   color: #fff;
   font-weight: bold;
 }
 
-nav a:hover {
+.nav-links a:hover {
   color: var(--rouge-profond);
 }
 
@@ -603,51 +633,54 @@ nav a:hover {
   ==========================
 */
 @media screen and (max-width: 768px) {
-  /* NAVIGATION VERTICALE SUR MOBILE */
+
+  /* 
+    BOUTON BURGER AFFICHÉ, 
+    LA LISTE DE LIENS MASQUÉE PAR DÉFAUT 
+  */
+  .nav-toggle {
+    display: block;
+  }
+
+  /* On masque la liste sur mobile, 
+     puis on l'affiche quand .nav-active est présent */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px; /* sous la barre */
+    left: 0;
+    width: 100%;
+    background-color: var(--bleu-nav);
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  /* Quand la classe .nav-active est ajoutée via JS, on affiche */
+  .nav-links.nav-active {
+    display: flex;
+  }
+
+  /* Ajustement des li en colonne */
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  /* On ajuste le nav pour un alignement horizontal 
+     (logo + burger) mais on ne le met plus en left:0, height:100%. */
   nav {
+    justify-content: space-between;
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 200px; /* largeur de la colonne */
-    flex-direction: column; 
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-
-  .logo-colloque {
-    margin-bottom: 20px;
-  }
-
-  nav ul {
-    flex-direction: column;
     width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  nav li {
-    margin: 10px 0; 
-  }
-
-  nav a {
-    display: block;
-    padding: 10px 0;
-  }
-
-  /*
-    Le contenu principal doit se décaler à droite
-    pour ne pas passer sous la barre de navigation.
-  */
-  body {
-    margin-left: 200px; /* Décalage pour la nav verticale */
-    padding-top: 0 !important; 
+    height: auto;
+    padding: 5px 10px;
   }
 
   /* SLIDER moins haut sur mobile */
   .fade-slider {
+    margin-top: 70px; /* pour laisser la place à la nav */
     height: 400px;
   }
 
@@ -764,6 +797,7 @@ nav a:hover {
 @media screen and (max-width: 480px) {
   /* On peut encore réduire le slider si on veut */
   .fade-slider {
+    margin-top: 70px; /* Laisse la place à la nav */
     height: 300px;
   }
 

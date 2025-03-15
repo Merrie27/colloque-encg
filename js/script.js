@@ -1,3 +1,6 @@
+// ==================================
+// 1. SLIDER
+// ==================================
 let slides = document.querySelectorAll('.slide');
 let currentIndex = 0;
 
@@ -30,7 +33,9 @@ setInterval(() => {
 
 updateDots();
 
-/* Intersection Observer (animation) */
+// ==================================
+// 2. INTERSECTION OBSERVER (Animations)
+// ==================================
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -45,6 +50,15 @@ const animElements = document.querySelectorAll('.fade-in-left, .fade-in-right');
 animElements.forEach(el => {
   observer.observe(el);
 });
+
+// ==================================
+// 3. MENU BURGER : toggleMenu()
+// ==================================
+function toggleMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('nav-active');
+}
+
 
 
 
