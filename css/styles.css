@@ -4,8 +4,8 @@
   ==========================
 */
 :root {
-  --bleu-nav: #F8F8F8; 
-  --bleu-marine: #002B5C; 
+  --bleu-nav: #416b9b; 
+  --bleu-marine: #275180; 
   --rouge-profond: #A51C30;
   --gris-clair: #F8F8F8;
   --gris-anthracite: #333333;
@@ -115,7 +115,7 @@ nav {
 /* Les liens */
 .nav-links a {
   text-decoration: none;
-  color: #0f0e0e;
+  color: #fff;
   font-weight: bold;
 }
 
