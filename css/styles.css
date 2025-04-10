@@ -4,7 +4,7 @@
   ==========================
 */
 :root {
-  --bleu-nav: #074075; 
+  --bleu-nav: #F8F8F8; 
   --bleu-marine: #002B5C; 
   --rouge-profond: #A51C30;
   --gris-clair: #F8F8F8;
@@ -62,7 +62,7 @@ nav {
   width: 100%;
   background-color: var(--bleu-nav);
   padding: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(22, 21, 21, 0.1);
   z-index: 999;
   display: flex;
   align-items: center;  
@@ -115,7 +115,7 @@ nav {
 /* Les liens */
 .nav-links a {
   text-decoration: none;
-  color: #fff;
+  color: #0f0e0e;
   font-weight: bold;
 }
 
